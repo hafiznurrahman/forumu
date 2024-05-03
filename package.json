@@ -6,11 +6,7 @@
   "scripts": {
     "start": "nodemon server/server.js"
   },
-  "keywords": [
-    "forum",
-    "chat",
-    "nodejs"
-  ],
+  "keywords": ["forum", "chat", "nodejs"],
   "author": "",
   "license": "ISC",
   "dependencies": {
