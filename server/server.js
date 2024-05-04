@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { createServer } = require("node:http");
 const { Server } = require("socket.io");
 
@@ -23,8 +24,8 @@ io.on("connection", socket => {
   });
 });
 
-const host = "localhost";
-const port = 3000;
+const host = process.env.HOST || "localhost";
+const port = process.env.PORT || 3000;
 
 server.listen(port, host, () => {
   console.log(`Server running at http://${host}:${port}`);

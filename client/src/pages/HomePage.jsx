@@ -18,7 +18,7 @@ export default function HomePage() {
   const messageInputRef = useRef(null);
   const sendBtnRef = useRef(null);
   const messageBoxAreaRef = useRef(null);
-  const socket = io("http://localhost:3000/");
+  const socket = io(import.meta.env.VITE_API_URL || "http://localhost:3000/");
 
   socket.on("connect", () => {
     console.log("Connected to server");
@@ -127,7 +127,8 @@ export default function HomePage() {
           className="w-screen text-3xl font-bold flex gap-3 fixed top-0 left-0 bg-gray-50 border-b border-gray-200 p-3 z-[999]"
           translate="no"
         >
-          <MdForum size={35} /> FORUMU
+          <MdForum size={35} />
+          FORUMU
         </h1>
 
         <ul
