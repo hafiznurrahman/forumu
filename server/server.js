@@ -6,7 +6,7 @@ const server = createServer();
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT || "http://localhost:5173/"
+    origin: process.env.CLIENT || "*"
   }
 });
 
@@ -22,10 +22,10 @@ io.on("connection", socket => {
 
 const port = process.env.PORT || 3000;
 
-server.listen(port, () => {
+io.listen(port, () => {
   console.log(`Server running ${port}`);
 });
 
-server.on("error", err => {
+io.on("error", err => {
   console.error("Server error:", err);
 });
