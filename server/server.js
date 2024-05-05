@@ -2,11 +2,15 @@ require("dotenv").config();
 const { createServer } = require("node:http");
 const { Server } = require("socket.io");
 
-const server = createServer();
+const server = createServer((req, res) => {
+  res.statusCode = 200;
+});
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT || "http://localhost:5173"
+    origin: process.env.CLIENT || "http://localhost:5173",
+    method:["GET","POST"],
+    credentials: true
   }
 });
 
