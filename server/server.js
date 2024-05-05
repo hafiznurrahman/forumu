@@ -4,13 +4,14 @@ const { Server } = require("socket.io");
 
 const server = createServer((req, res) => {
   res.statusCode = 200;
+  res.end("running")
 });
 
 const io = new Server(server, {
   cors: {
     origin: process.env.CLIENT || "http://localhost:5173",
-    method:["GET","POST"],
-    credentials: true
+  
+    
   }
 });
 
