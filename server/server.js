@@ -2,21 +2,20 @@ require("dotenv").config();
 const { createServer } = require("node:http");
 const { Server } = require("socket.io");
 
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.end("Server is running");
-});
+const server = createServer();
 
 const io = new Server(server, {
   cors: {
-    origin: "*"
+    origin: process.env.CLIENT || "http://localhost:5173/",
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
+
 io.on("connection", socket => {
   console.log("User connected");
   socket.on("msgData", (username, message, time) => {
-    socket.broadcast.emit("msgData", username, message,time);
-    
+    socket.broadcast.emit("msgData", username, message, time);
   });
   socket.on("disconnect", () => {
     console.log("User disconnected");
