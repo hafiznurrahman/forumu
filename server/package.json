@@ -1,13 +1,12 @@
 {
-  "name": "forumu",
+  "name": "forumu-server",
   "version": "1.0.0",
-  "description": "",
-  "type":"commonjs",
+  "description": "forumu server, server realtime",
+  "type": "commonjs",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"
   },
-  "keywords": ["forum", "chat", "nodejs"],
   "author": "",
   "license": "ISC",
   "dependencies": {
