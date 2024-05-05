@@ -16,7 +16,10 @@ export default function HomePage() {
   const sendBtnRef = useRef(null);
   const messageBoxAreaRef = useRef(null);
 
-  const socket = io(import.meta.env.VITE_API_URL || "http://localhost:3000/");
+  const socket = io(import.meta.env.VITE_API_URL || "http://localhost:3000/",{
+    transports: [ "websocket" ],
+    withCredentials: true
+    });
 
   socket.on("connect", () => {
     console.log("Connected to server");
