@@ -4,7 +4,6 @@ const { Server } = require("socket.io");
 
 const server = createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain")
   res.end("Server is running");
 });
 
@@ -15,8 +14,9 @@ const io = new Server(server, {
 });
 io.on("connection", socket => {
   console.log("User connected");
-  socket.on("message", data => {
-    socket.broadcast.emit("message", data);
+  socket.on("msgData", (username, message, time) => {
+    socket.broadcast.emit("msgData", username, message,time);
+    
   });
   socket.on("disconnect", () => {
     console.log("User disconnected");
