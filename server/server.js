@@ -4,6 +4,7 @@ const { Server } = require("socket.io");
 
 const server = createServer((req, res) => {
   res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain")
   res.end("Server is running");
 });
 
