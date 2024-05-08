@@ -1,7 +1,7 @@
 /*
 TODO: add components chat bubble
-      -------------- text input and image file input
-      -------------- send button
+TODO: -------------- text input and image file input
+TODO: -------------- send button
 */
 
 import { io } from "socket.io-client";
